@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "API blindada de la Municipalidad",
+  "description": "API de la Municipalidad",
   "main": "dist/app.js",
   "scripts": {
     "build": "npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
-    "@types/fastify": "^4.25.4",
     "@types/jsonwebtoken": "^9.0.6",
     "typescript": "^5.4.5",
     "ts-node": "^10.9.2",
