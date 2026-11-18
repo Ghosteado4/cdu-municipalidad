@@ -1,0 +1,60 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  CIUDADANO
+  OPERADOR_AREA
+  AUDITOR
+  SUPER_ADMIN
+}
+
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  password  String     // Hash de Argon2id
+  role      Role       @default(CIUDADANO)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  sessions  Session[]
+  logs      AuditLog[]
+  tramites  Tramite[]
+}
+
+model Session {
+  id        String   @id @default(uuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String
+  action    String
+  entity    String
+  ipAddress String
+  timestamp DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Restrict)
+}
+
+model Tramite {
+  id          String   @id @default(uuid())
+  tipo        String   // HABILITACION_COMERCIAL, PERMISO_CONSTRUCCION, etc.
+  titulo      String
+  descripcion String
+  domicilio   String
+  telefono    String
+  estado      String   @default("PENDIENTE")
+  usuarioId   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  usuario     User     @relation(fields: [usuarioId], references: [id], onDelete: Restrict)
+}

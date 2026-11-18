@@ -1,0 +1,13 @@
+        # Dependencias
+node_modules/
+dist/
+.next/
+out/
+
+# Variables de entorno con datos sensibles
+.env
+.env.local
+
+# Archivos de configuración del sistema
+.DS_Store
+Thumbs.db
