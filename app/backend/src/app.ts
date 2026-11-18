@@ -14,7 +14,7 @@ export const startServer = async () => {
 
   await configureSecurity(app);
 
-  // <-- Punto clave: sirve la carpeta dist/ del frontend desde la ruta raíz
+  // <-- esto hace que el backend sirva la carpeta dist/ del frontend
   await app.register(require('fastify-static'), {
     root: path.join(__dirname, '../../frontend/dist'),
     prefix: '/',
@@ -35,4 +35,4 @@ export const startServer = async () => {
 startServer().catch(err => {
   console.error(err);
   process.exit(1);
-});
+};

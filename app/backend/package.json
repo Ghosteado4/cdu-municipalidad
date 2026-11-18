@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "API blindada de la Municipalidad",
   "main": "dist/app.js",
-  "scripts": {
-    "build": "npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
-    "start": "node dist/app.js",
-    "dev": "ts-node src/app.ts"
-  },
+"scripts": {
+  "build": "npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
+  "start": "node dist/app.js",
+  "dev": "ts-node src/app.ts"
+}
   "dependencies": {
     "@fastify/cookie": "^9.3.1",
     "@fastify/helmet": "^11.1.1",
