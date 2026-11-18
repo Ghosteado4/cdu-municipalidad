@@ -5,8 +5,7 @@
   "main": "dist/app.js",
 "scripts": {
   "build": "cd ../frontend && npm install && npm run build && cd ../backend && npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
-  "start": "node dist/app.js",
-  "dev": "ts-node src/app.ts"
+  "start": "node dist/app.js"
 }
   "dependencies": {
     "@fastify/cookie": "^9.3.1",
