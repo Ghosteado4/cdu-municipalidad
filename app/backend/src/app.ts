@@ -14,8 +14,8 @@ export const startServer = async () => {
 
   await configureSecurity(app);
 
-  // <-- esto hace que el backend sirva la carpeta dist/ del frontend
-  await app.register(require('fastify-static'), {
+  // Servir los archivos estáticos del frontend desde la carpeta dist
+  await app.register(require('@fastify/static'), {
     root: path.join(__dirname, '../../frontend/dist'),
     prefix: '/',
   });
@@ -29,10 +29,10 @@ export const startServer = async () => {
 
   const PORT = Number(process.env.PORT) || 4000;
   await app.listen({ port: PORT, host: '0.0.0.0' });
-  console.log(`🚀 Servidor en http://0.0.0.0:${process.env.PORT || 4000}`);
+  console.log(`🚀 Servidor municipal operativo en puerto ${PORT}`);
 };
 
 startServer().catch(err => {
   console.error(err);
   process.exit(1);
-};
+});
