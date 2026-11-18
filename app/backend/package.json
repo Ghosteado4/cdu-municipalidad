@@ -1,5 +1,28 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "API blindada de la Municipalidad de Concepción del Uruguay",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "ts-node src/app.ts"
+  },
   "dependencies": {
-    "file-type": "^22.3.0"
+    "@fastify/cookie": "^9.3.1",
+    "@fastify/helmet": "^11.1.1",
+    "@fastify/rate-limit": "^9.1.0",
+    "@prisma/client": "^5.14.0",
+    "fastify": "^4.27.0",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.23.8",
+    "file-type": "^16.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2",
+    "prisma": "^5.14.0"
   }
 }
