@@ -14,8 +14,9 @@ export const startServer = async () => {
 
   await configureSecurity(app);
 
+  // Servir los archivos estáticos del frontend desde la carpeta "public" dentro de "dist"
   await app.register(require('@fastify/static'), {
-    root: path.join(__dirname, '../../frontend/dist'),
+    root: path.join(__dirname, 'public'),
     prefix: '/',
   });
 

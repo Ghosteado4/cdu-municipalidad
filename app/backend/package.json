@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "API de la Municipalidad",
   "main": "dist/app.js",
-  "scripts": {
-    "build": "npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
-    "start": "node dist/app.js",
-    "dev": "ts-node src/app.ts"
-  },
+"scripts": {
+  "build": "cd ../frontend && npm install && npm run build && mkdir -p ../backend/dist/public && cp -r dist/* ../backend/dist/public/ && cd ../backend && npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
+  "start": "node dist/app.js",
+  "dev": "ts-node src/app.ts"
+}
   "dependencies": {
     "@fastify/cookie": "^9.3.1",
     "@fastify/helmet": "^11.1.1",
