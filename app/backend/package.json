@@ -4,7 +4,7 @@
   "description": "API blindada de la Municipalidad",
   "main": "dist/app.js",
   "scripts": {
-    "build": "cd ../frontend && npm install && npm run build && cp -r ../frontend/dist ../backend/dist/public && cd ../backend && npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
+    "build": "npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
     "start": "node dist/app.js",
     "dev": "ts-node src/app.ts"
   },
