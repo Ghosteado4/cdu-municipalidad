@@ -3,21 +3,20 @@
   "version": "1.0.0",
   "description": "API blindada de la Municipalidad de Concepción del Uruguay",
   "main": "dist/app.js",
-  "scripts": {
-    "build": "cd ../frontend && npm install && npm run build && cd ../backend && npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
-    "start": "node dist/app.js",
-    "dev": "ts-node src/app.ts"
-  },
+"scripts": {
+  "build": "npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
+  "start": "node dist/app.js"
+},
   "dependencies": {
     "@fastify/cookie": "^9.3.1",
     "@fastify/helmet": "^11.1.1",
     "@fastify/rate-limit": "^9.1.0",
-    "@fastify/static": "^10.1.11",
+    "@fastify/static": "7.0.4",
     "@prisma/client": "^5.14.0",
-    "fastify": "^4.27.0",
-    "file-type": "^17.1.4",
+    "fastify": "^4.29.1",
     "jsonwebtoken": "^9.0.2",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "file-type": "^17.1.4"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.6",
