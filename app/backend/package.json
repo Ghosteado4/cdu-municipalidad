@@ -4,7 +4,7 @@
   "description": "API blindada de la Municipalidad de Concepción del Uruguay",
   "main": "dist/app.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx prisma generate --schema=../../packages/prisma/schema.prisma && tsc",
     "start": "node dist/app.js",
     "dev": "ts-node src/app.ts"
   },
